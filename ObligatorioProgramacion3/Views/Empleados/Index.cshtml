@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ObligatorioProgramacion3.Models.Empleado>
+@{
+	ViewData["Title"] = "Lista de empleados";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+	<div class="col-4">
+		<h3>Lista de empleados</h3>
+	</div>
+	<div class="col-3">
+		<a asp-action="Crear" class="btn btn-primary form-control">Subir empleado</a>
+	</div>
+</div>
+
+<div>
+	@if (Model.Count() > 0)
+	{
+		<table class="table table-striped border">
+			<tr>
+				<th>
+					Nombre
+				</th>
+			</tr>
+			@foreach (var empleado in Model)
+			{
+				<tr>
+					<td>@empleado.Nombre</td>
+					<td>@empleado.Apellido</td>
+					<td>
+						<a class="btn btn-primary text-white" asp-action="Editar" asp-route-id="@empleado.Id">Editar</a>
+						<a class="btn btn-danger text-white" asp-action="Borrar" asp-route-id="@empleado.Id">Borrar</a>
+					</td>
+				</tr>
+			}
+		</table>
+	}
+	else
+	{
+		<p>No hay empleados</p>
+	}
+</div>
