@@ -13,6 +13,7 @@ namespace ObligatorioProgramacion3.Models
         public string? Genero { get; set; }
         [StringLength(150)]
         public string? Sinopsis { get; set; }
+        public List<Proyeccion>? Proyecciones { get; set; }
 
     }
 }

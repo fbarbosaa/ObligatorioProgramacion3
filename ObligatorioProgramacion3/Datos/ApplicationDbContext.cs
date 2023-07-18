@@ -10,5 +10,6 @@ namespace ObligatorioProgramacion3.Datos
         {
         }
         public DbSet<Pelicula> Peliculas { get; set; }
+        public DbSet<Proyeccion> Proyecciones { get; set; }
     }
 }

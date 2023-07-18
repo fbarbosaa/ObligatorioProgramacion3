@@ -17,7 +17,7 @@ namespace ObligatorioProgramacion3.Controllers
         public IActionResult Index()
         {
             List<Pelicula>? List = _context?.Peliculas?.ToList();
-            return View();
+            return View(List);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
