@@ -19,6 +19,11 @@ namespace ObligatorioProgramacion3.Controllers
             List<Pelicula>? List = _context?.Peliculas?.ToList();
             return View(List);
         }
+        [HttpGet]
+        public IActionResult Crear()
+        {
+            return View();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Crear(Pelicula pelicula)
