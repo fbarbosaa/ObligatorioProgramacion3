@@ -7,7 +7,7 @@ namespace ObligatorioProgramacion3.Models
     public class Pelicula
     {
         [Key]
-        public int PeliculaId { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Debe ingresar el nombre de la pelicula")]
         public string? Titulo { get; set; }
         public string? Genero { get; set; }
