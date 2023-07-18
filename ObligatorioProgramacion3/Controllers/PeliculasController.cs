@@ -37,5 +37,41 @@ namespace ObligatorioProgramacion3.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public IActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return View();
+            }
+            var pelicula = _context?.Peliculas?.FirstOrDefault(c => c.Id == id);
+            return View(pelicula);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Editar(Pelicula pelicula)
+        {
+            if (ModelState.IsValid)
+            {
+                _context?.Peliculas?.Update(pelicula);
+                _context?.SaveChanges();
+                // return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
+            }
+            return View(pelicula);
+        }
+        [HttpGet]
+        public IActionResult Borrar(int? id)
+        {
+            var pelicula = _context?.Peliculas?.FirstOrDefault(c => c.Id == id);
+            if (pelicula != null)
+            {
+                _context?.Peliculas?.Remove(pelicula);
+            }
+            _context?.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
