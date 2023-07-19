@@ -9,9 +9,11 @@ namespace ObligatorioProgramacion3.Models
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Debe ingresar la fecha de la pelicula")]
-        public DateTime Fecha { get; set; }
+		[DataType(DataType.Date)]
+		public DateTime Fecha { get; set; }
         [Required(ErrorMessage = "Debe ingresar la hora de la pelicula")]
-        public TimeSpan Hora { get; set; }
+		[DataType(DataType.Time)]
+		public TimeSpan Hora { get; set; }
         [ForeignKey("Pelicula")]
         public int IdPelicula { get; set; }
         public Pelicula? Pelicula { get; set; }
